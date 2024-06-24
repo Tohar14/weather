@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatGpt page</title>
+</head>
+<body>
+    <textarea id="prompt" rows="4" cols="50"></textarea>
+    <button onclick="generateAnswer()">Get Answer</button>
+    <div id="answer"></div>
+
+    <script>
+        async function generateAnswer() {
+            const prompt = document.getElementById('prompt').value;
+            const response = await fetch('/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ prompt: prompt })
+            });
+            const answer = await response.text();
+            document.getElementById('answer').innerText = answer;
+        }
+    </script>
+</body>
+</html>

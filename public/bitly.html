@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitly Shortener</title>
+    <link rel="stylesheet" href="./mystyle.css"/>
+</head>
+<body>
+    <h1>Bitly Shortener</h1>
+
+    <div class="container">
+        <h2>Create Short Link</h2>
+        <form id="createShortLinkForm">
+            <label for="longLink">Long Link:</label>
+            <input type="text" id="longLink" name="longLink" required>
+            <button type="submit">Create</button>
+        </form>
+        <div class="result" id="createResult"></div>
+    </div>
+
+    <div class="container">
+        <h2>Get Link By Short URL</h2>
+        <form id="getLinkByShortUrlForm">
+            <label for="shortLinkSearch">Short Link:</label>
+            <input type="text" id="shortLinkSearch" name="shortLinkSearch" required>
+            <button type="submit">Search</button>
+        </form>
+        <div class="result" id="searchResult"></div>
+    </div>
+
+    <div class="container">
+        <h2>All Links</h2>
+        <button id="getAllLinksButton">Get All Links</button>
+        <div class="result" id="allLinksResult"></div>
+    </div>
+    <script src="./js/bitly.js"></script>
+</body>
+</html>

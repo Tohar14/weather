@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Revursive Functions Demo:</h1>
+
+<div>
+    <h2>Print Numbers from 1 to N</h2>
+    <input type="number" id="printNumbersInput" value="20"/>
+    <button onclick="printNumbersClient()"> Print Numbers </button>
+    <pre id="printNumbersOutput"></pre>
+</div>
+<div>
+    <h2>Sum Numbers from 1 to N</h2>
+    <input type="number" id="sumNumbersInput" value="20">
+    <button onclick="sumNumbersClient()">Sum Numbers</button>
+    <pre id="sumNumbersOutput"> </pre>
+</div>
+<script>
+    function printNumbers(n){
+        if (n === 0 ){
+            return [];
+        }
+        let numbers = printNumbers(n-1);
+        numbers.push(n);
+        return numbers;
+    }
+
+
+    function printNumbersClient(){
+        const n = parseInt(document.getElementById("printNumbersInput").value);
+        const ouput = printNumbers(n).join(' ');
+        document.getElementById("printNumbersOutput").textContent = ouput;
+    }
+
+    function sumNumbers(n){
+        if(n == 0){
+            return 0;
+        }
+        return n + sumNumbers(n-1);
+    }
+    function sumNumbersClient(){
+        const n = parseInt(document.getElementById("sumNumbersInput").value);
+        const output = sumNumbers(n);
+
+
+        document.getElementById("sumNumbersOutput").textContent = output;
+    }
+
+
+
+</script>
+
+</body>
+</html>
